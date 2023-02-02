@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  authentication_token   :string(30)
 #  avatar_image           :string           default("avatar_placeholder.png")
 #  bio                    :string
 #  comments_count         :integer          default(0)
@@ -22,6 +23,7 @@
 #
 # Indexes
 #
+#  index_users_on_authentication_token  (authentication_token) UNIQUE
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_username              (username) UNIQUE
