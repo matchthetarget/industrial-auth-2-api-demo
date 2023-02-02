@@ -83,3 +83,5 @@ group :development do
   gem 'skylight'
   gem 'web_git', github: 'firstdraft/web_git'
 end
+gem 'rack-cors'
+gem 'simple_token_authentication', '~> 1.0'
