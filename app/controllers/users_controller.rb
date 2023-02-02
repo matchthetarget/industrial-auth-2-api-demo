@@ -6,7 +6,9 @@ class UsersController < ApplicationController
   private
 
     def set_user
-      if params[:username]
+      if json_request?
+        @user = tokenized_user
+      elsif params[:username]
         @user = User.find_by!(username: params.fetch(:username))
       else
         @user = current_user
@@ -14,7 +16,9 @@ class UsersController < ApplicationController
     end
 
     def must_be_owner_to_view
-      if current_user != @user
+      if json_request? && @user.blank?
+        render json: { status: 401, message: "You're not authorized for that." }
+      elsif current_user != @user
         redirect_back fallback_location: root_url, alert: "You're not authorized for that."
       end
     end
