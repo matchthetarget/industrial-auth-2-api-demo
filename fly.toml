@@ -1,6 +1,6 @@
-# fly.toml file generated for industrial-auth-2-api-demo on 2023-02-03T11:30:59-06:00
+# fly.toml file generated for industrial-auth-api on 2023-02-03T16:37:57-06:00
 
-app = "industrial-auth-2-api-demo"
+app = "industrial-auth-api"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
